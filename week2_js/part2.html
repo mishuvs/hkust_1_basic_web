@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<HTML>
+	
+	<HEAD>
+	
+		<script>
+		
+			var colors = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+	
+			var ans = colors[Math.floor( Math.random() * colors.length)];
+
+			var count = 0;
+
+			function do_game() {
+	
+			do{ count++;
+		
+				response = prompt("I am thinking of one of these colors: \n \n" + colors + 
+				"\n \n Guess the color I thought of?");
+		
+			}while(!check_guess());
+	
+			}
+	
+			function check_guess() {
+			
+				if(response == ans) {
+		
+					myBody=document.getElementsByTagName("body")[0];
+					myBody.style.background = ans;
+			
+					alert("Congrats! You cracked the answer \n\n It took you " + count + 
+					" guesses to crack the answer. \n\n You can see the color in the background :-)");
+				
+					return true;
+				
+				}
+		
+				if( colors.indexOf(response) == -1 ) 
+					{alert("That color is not in the options! \n\n Please TRY AGAIN!"); return false; }
+			
+				else if(response<ans) 
+					{ alert("Sorry! Your guess is not correct \n\n Hint: Your color is ALPHABETICALLY LOWER than mine \n\n Please TRY AGAIN!"); return false; }
+	
+				else 
+					{alert("Sorry! Your guess is not correct \n\n Hint: Your color is ALPHABETICALLY HIGHER than mine \n\n Please TRY AGAIN!"); return false; }
+			
+			}
+			
+		</script>
+		
+	</HEAD>
+	
+	<BODY onload="do_game()">
+		<h1> This is my color guessing game :) </h1>
+	</BODY>
+	
+</HTML>
