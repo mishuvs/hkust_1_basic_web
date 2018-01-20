@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+    <Style>
+        img {position: absolute}
+        div {position: absolute; width:500px; height:500px}
+        #rightSide { left: 500px; border-left: 1px solid black }
+    </Style>
+    <TITLE> Guessing game </TITLE>
+</HEAD>
+<BODY>
+<h1>Matching Game</h1>
+Click on the extra smiling face.
+<div id="leftside"></div>
+<div id="rightside" onload="getFacesInLoop"></div>
+
+<script>
+    function getFacesInLoop() {
+		var i=0;
+		for(i=0; i<5; i++) {
+			var theLeftSide = document.getElementById('leftside');
+            var myImage = document.createElement("img");
+			var rand1 = 400*Math.random();
+			var rand2 = 400*Math.random();
+			myImage.style.right= rand1 + "px";
+			myImage.style.top = rand2 + "px";
+            theLeftSide.appendChild(myImage);
+            myImage.src = "smile.jpg";
+            }
+		}
+</script>
+
+</BODY>
+</HTML>
